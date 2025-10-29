@@ -1,49 +1,17 @@
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
-
-/**
- * @title ChainCrest
- * @dev A decentralized achievement and credential verification system
- * @notice This contract allows institutions to issue verifiable credentials as NFT-based badges
- */
-contract ChainCrest {
-    
-    // Structure to represent a credential/achievement
+Structure to represent a credential/achievement
     struct Credential {
         uint256 id;
         address issuer;
         address recipient;
         string credentialType;
-        string credentialHash; // IPFS hash or similar
-        uint256 issuedDate;
-        bool isValid;
-    }
-    
-    // State variables
+        string credentialHash; State variables
     uint256 private credentialCounter;
     mapping(uint256 => Credential) public credentials;
     mapping(address => uint256[]) public recipientCredentials;
     mapping(address => bool) public authorizedIssuers;
     address public admin;
     
-    // Events
-    event CredentialIssued(
-        uint256 indexed credentialId,
-        address indexed issuer,
-        address indexed recipient,
-        string credentialType,
-        uint256 issuedDate
-    );
-    
-    event CredentialRevoked(
-        uint256 indexed credentialId,
-        address indexed issuer
-    );
-    
-    event IssuerAuthorized(address indexed issuer);
-    event IssuerRevoked(address indexed issuer);
-    
-    // Modifiers
+    Modifiers
     modifier onlyAdmin() {
         require(msg.sender == admin, "Only admin can perform this action");
         _;
@@ -189,3 +157,6 @@ contract ChainCrest {
         return credentialCounter;
     }
 }
+// 
+update
+// 
