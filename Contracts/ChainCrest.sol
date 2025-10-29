@@ -115,48 +115,8 @@ Structure to represent a credential/achievement
         emit CredentialRevoked(_credentialId, msg.sender);
     }
     
-    // Additional utility functions
-    
-    /**
-     * @dev Authorize a new issuer (admin only)
-     * @param _issuer Address of the new issuer
-     */
-    function authorizeIssuer(address _issuer) public onlyAdmin {
-        require(_issuer != address(0), "Invalid issuer address");
-        authorizedIssuers[_issuer] = true;
-        emit IssuerAuthorized(_issuer);
-    }
-    
-    /**
-     * @dev Revoke issuer authorization (admin only)
-     * @param _issuer Address of the issuer to revoke
-     */
-    function revokeIssuerAuthorization(address _issuer) public onlyAdmin {
-        authorizedIssuers[_issuer] = false;
-        emit IssuerRevoked(_issuer);
-    }
-    
-    /**
-     * @dev Get all credentials for a recipient
-     * @param _recipient Address of the recipient
-     * @return Array of credential IDs
-     */
-    function getRecipientCredentials(address _recipient) 
-        public 
-        view 
-        returns (uint256[] memory) 
-    {
-        return recipientCredentials[_recipient];
-    }
-    
-    /**
-     * @dev Get total number of credentials issued
-     * @return Total credential count
-     */
-    function getTotalCredentials() public view returns (uint256) {
-        return credentialCounter;
-    }
-}
+    update
+// 
 // 
 update
 // 
